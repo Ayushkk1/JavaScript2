@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<script>
+	    
+	    function altertStyleToDiv(div) {
+
+	        div.style.width = generateRandomNumber(20, 100) + "px";
+	        div.style.height = generateRandomNumber(20, 100) + "px";
+	        div.style.backgroundColor = rndColor();
+	        div.style.color = rndColor();        
+	        div.innerHTML += "<strong>div</strong>";
+	        div.style.borderStyle = "solid";
+	        div.style.borderRadius = generateRandomNumber(0, 10) + "px";
+	        div.style.borderColor = rndColor();
+	        div.style.borderWidth = generateRandomNumber(1, 20) + "px";
+	    }
+
+	    function rndColor() {
+	        var r = ('0' + generateRandomNumber(0, 255).toString(16)).substr(-2), // red
+                g = ('0' + generateRandomNumber(0, 255).toString(16)).substr(-2), // green
+                b = ('0' + generateRandomNumber(0, 255).toString(16)).substr(-2); // blue
+	        return '#' + r + g + b;
+	    }
+
+	    function generateRandomNumber(start, end) {
+	        var number = Math.floor(Math.random() * (end - start)) + start;
+	        return number;
+	    }
+
+	    function rotateDiv(divs) {
+	        var increase = Math.PI * 2 / divs.length;
+	        var x = 0, y = 0;
+	        angle += 1;
+	        for (i = 0; i < divs.length; i++) {
+	            div = divs[i];
+	            x = 200 * Math.cos(angle) + screen.width/2;
+	            y = 200 * Math.sin(angle) + screen.height/2;
+	            div.style.position = 'absolute';
+	            div.style.left = x + 'px';
+	            div.style.top = y + 'px';
+	            //need to work this part out
+	            var rot = 90 + (i * (360 / divs.length));
+	            div.style['-moz-transform'] = "rotate(" + rot + "deg)";
+	            div.style.MozTransform = "rotate(" + rot + "deg)";
+	            div.style['-webkit-transform'] = "rotate(" + rot + "deg)";
+	            div.style['-o-transform'] = "rotate(" + rot + "deg)";
+	            div.style['-ms-transform'] = "rotate(" + rot + "deg)";
+	            angle += increase;
+	        }
+	    }
+		(function generateRandomDivs() {
+		    var dfrag = document.createDocumentFragment();
+		    var divsNumber = 5;
+		    var i = 0;
+		    angle = 0;
+		    for (i = 0; i < divsNumber; i++) {
+		        var div = document.createElement("div");
+		        dfrag.appendChild(div);
+		    }
+
+		    document.body.appendChild(dfrag);
+
+		    var divs = document.getElementsByTagName("div");
+		    for (i = 0; i < divs.length; i++) {
+		        div = divs[i];
+		        altertStyleToDiv(div);
+		    }
+
+		    setInterval(function () { rotateDiv(divs) }, 1000);
+
+			}());
+	</script>
+</body>
