@@ -13,14 +13,19 @@
 			var firstChild = dfrag.childNodes[0];
 			dfrag.appendChild(document.createElement("div"));
 			var secondChild = dfrag.childNodes[1];
+			dfrag.appendChild(document.createElement("div"));
+			var thirdChild = dfrag.childNodes[2];
 
 			var textArea = document.createElement("textarea");
 			textArea.id = "textArea";
 			textArea.rows = "4";
 			textArea.cols = "50";
 			textArea.innerHTML = "And from that I changed and added font/ style color and it never changed the value text color?";
-			secondChild.appendChild(textArea);
+			thirdChild.appendChild(textArea);
 
+			var label = document.createElement("label")
+			label.innerHTML = "Insert font color for text area:";
+			firstChild.appendChild(label);
 		    var firstInput = document.createElement("input");
 			firstInput.id = "firstInput";
 			firstInput.type = "color";
@@ -30,6 +35,10 @@
 			    element.style.color = firstInput.value;
 			}, false);
 			firstChild.appendChild(firstInput);
+
+			label = document.createElement("label")
+			label.innerHTML = "Insert background color for text area:";
+			secondChild.appendChild(label);
 			var secondInput = document.createElement("input");
 			secondInput.id = "secondInput";
 			secondInput.type = "color";
@@ -38,7 +47,7 @@
 			    var element = document.getElementById("textArea");
 			    element.style.backgroundColor = secondInput.value;
 			}, false);
-		    firstChild.appendChild(secondInput);
+		    secondChild.appendChild(secondInput);
 			
 
 		    textArea.color = firstInput.value;
