@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	
+</head>
+<body>
+	<script>
+	    	    
+	    (function generateinputs() {
+		    var dfrag = document.createDocumentFragment();
+			dfrag.appendChild(document.createElement("div"));			
+			var firstChild = dfrag.childNodes[0];
+			dfrag.appendChild(document.createElement("div"));
+			var secondChild = dfrag.childNodes[1];
+
+			var textArea = document.createElement("textarea");
+			textArea.id = "textArea";
+			textArea.rows = "4";
+			textArea.cols = "50";
+			textArea.innerHTML = "And from that I changed and added font/ style color and it never changed the value text color?";
+			secondChild.appendChild(textArea);
+
+		    var firstInput = document.createElement("input");
+			firstInput.id = "firstInput";
+			firstInput.type = "color";
+			firstInput.value = "#000000";
+			firstInput.addEventListener("change", function () {
+			    var element = document.getElementById("textArea");
+			    element.style.color = firstInput.value;
+			}, false);
+			firstChild.appendChild(firstInput);
+			var secondInput = document.createElement("input");
+			secondInput.id = "secondInput";
+			secondInput.type = "color";
+			secondInput.value = "#ffffff";
+			secondInput.addEventListener("change", function () {
+			    var element = document.getElementById("textArea");
+			    element.style.backgroundColor = secondInput.value;
+			}, false);
+		    firstChild.appendChild(secondInput);
+			
+
+		    textArea.color = firstInput.value;
+		    textArea.backgroundColorColor = secondInput.value;
+
+		    document.body.appendChild(dfrag);
+            }());
+	</script>
+</body>
+</html>
