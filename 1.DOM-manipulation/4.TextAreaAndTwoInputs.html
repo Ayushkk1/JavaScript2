@@ -30,6 +30,7 @@
 			firstInput.id = "firstInput";
 			firstInput.type = "color";
 			firstInput.value = "#000000";
+	        // first variant to create event
 			firstInput.addEventListener("change", function () {
 			    var element = document.getElementById("textArea");
 			    element.style.color = firstInput.value;
@@ -43,10 +44,11 @@
 			secondInput.id = "secondInput";
 			secondInput.type = "color";
 			secondInput.value = "#ffffff";
-			secondInput.addEventListener("change", function () {
+            // second variant to create event
+			secondInput.onchange = function () {
 			    var element = document.getElementById("textArea");
 			    element.style.backgroundColor = secondInput.value;
-			}, false);
+			};
 		    secondChild.appendChild(secondInput);
 			
 
