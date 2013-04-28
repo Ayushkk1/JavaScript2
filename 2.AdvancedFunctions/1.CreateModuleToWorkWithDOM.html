@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<style>
+	    #main-nav ul li{
+            list-style:none;
+            display: inline;
+            padding: 0 20px;
+            border:2px solid green;
+            border-radius: 5px;
+	    }
+	    ul li {
+            list-style:circle;
+	    }
+	</style>
+</head>
+<body>
+    <nav id="main-nav">
+        <ul>
+            <li>navItem1</li>
+            <li>navItem2</li>
+            <li>navItem3</li>
+            <li>navItem4</li>
+        </ul>
+    </nav>
+    <div id="container">        
+    </div>
+    <div id="wrapper">
+        <ul>
+            <li>first element</li>
+            <li>second element</li>
+            <li>third element</li>
+            <li><a class="button">Click me!</a></li>
+            <li>fifth element</li>
+            <li><a class="button">Click me!</a></li>
+        </ul>
+        <ul>
+            <li>first element</li>
+            <li>second element</li>
+            <li><a class="button">Click me!</a></li>
+            <li>forth element</li>
+        </ul>
+    </div>    
+	<script>
+	    var domModule = (function () {
+	        var element;
+	        var MAX_BUFFER_ELEMENTS = 100;
+	        var bufferElements = [];
+
+	        function getElement(selector) {
+	            return document.querySelector(selector);
+	        }
+	        function getElements(selector) {
+	            return document.querySelectorAll(selector);
+	        }
+
+	        function appendChild(child, selector) {
+	            element = getElement(selector);
+	            element.appendChild(child);
+	        }
+	        function removeChild(parent, selector) {
+	            var removeElements = getElements(parent + " " + selector);
+	            for (var i = 0; i < removeElements.length; i++) {
+	                element = removeElements[i].parentNode;
+	                element.removeChild(removeElements[i]);
+	            }
+	        }
+	        function addHandler(selector, eventType, eventHandler) {
+	            var elements = getElements(selector);
+	            for (var i = 0; i < elements.length; i++) {
+	                if (elements[i].addEventListener) {
+	                    elements[i].addEventListener(eventType, eventHandler, false);
+	                } else {
+	                    element[i].attachEvent("on" + eventType, eventHandler);
+	                }
+	                
+	            }
+	        }
+	        function appendToBuffer(selector, element) {
+	            if (!bufferElements[selector]) {
+	                bufferElements[selector] = document.createDocumentFragment();
+	            }
+	            bufferElements[selector].appendChild(element);
+	            if (bufferElements[selector].childNodes.length == MAX_BUFFER_ELEMENTS) {
+	                var parent = getElement(selector);
+	                parent.appendChild(bufferElements[selector]);
+	                bufferElements[selector] = null;
+	            }
+	        }
+	        function appendAllBufferElemends() {
+	            for (var item in bufferElements) {
+	                var parent = getElement(item);
+	                parent.appendChild(bufferElements[item]);
+	                bufferElements[item] = null;
+	            }
+	        }
+	        return {
+	            appendChild: appendChild,
+	            removeChild: removeChild,
+	            addHandler: addHandler,
+	            appendToBuffer: appendToBuffer,
+	            appendAllBufferElemends: appendAllBufferElemends
+	        };
+	    })();
+
+	    var div = document.createElement("div");
+	    div.style.backgroundColor = "#ff0000";
+	    div.style.width = "500px";
+	    div.style.height = "20px";
+	    div.innerHTML ="JS added div";
+	    //change the div
+	    domModule.appendChild(div, "#wrapper");
+	    //remove the first li from each ul
+	    domModule.removeChild("ul","li:first-child"); 
+	    domModule.addHandler("a.button", 'click',        
+                             function(){alert("Clicked")});
+	    domModule.appendToBuffer("#container", div.cloneNode(true));
+	    var navItem = document.createElement("li");
+	    navItem.innerHTML ="JS added navItem";
+	    domModule.appendToBuffer("#main-nav ul", navItem);
+
+        // at the end of JS append all not appended elements in buffer.
+	    domModule.appendAllBufferElemends()
+	    
+	</script>
+</body>
+</html>
