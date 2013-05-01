@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="TreeView.css" rel="stylesheet" />
+    <script src="createTreeViewControl.js"> </script>
+    <script src="addEventToElement.js"> </script>
+</head>
+<body>    
+    <script>
+        var treeView = controls.treeView("div.tree-view");
+        var jsnode=treeView.addNode();
+        jsnode.content("JavaScript");
+        var js1subnode = jsnode.addNode();
+        js1subnode.content("JavaScript - part 1");
+        var js2subnode = jsnode.addNode();
+        js2subnode.content("JavaScript - part 2");
+        var jslibssubnode = jsnode.addNode();
+        jslibssubnode.content("JS Libraries");
+        var jsframeworksnode = jsnode.addNode();
+        jsframeworksnode.content("JS Frameworks and UI");
+        var js1subnode1subnode = js1subnode.addNode();
+        js1subnode1subnode.content("Task1");
+        var js1subnode2subnode = js1subnode.addNode();
+        js1subnode2subnode.content("Task2");
+
+        var webnode = treeView.addNode();
+        webnode.content("Web");
+
+        addEventsOnLiElement();
+	</script>
+</body>
+</html>

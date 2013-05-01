@@ -1,0 +1,26 @@
+﻿.tree-view {
+  margin: 0;
+}
+.tree-view > ul {
+  padding: 0 0 0 15px;
+
+}
+    .tree-view > ul li {
+        padding: 0 0 0 15px;
+        float: left;
+        width: 100%;
+        list-style: circle;
+    }
+        .tree-view > ul li li {
+            padding: 0 0 0 15px;
+            float: left;
+            width: 100%;
+            list-style: circle;
+        }
+a.list-content {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
