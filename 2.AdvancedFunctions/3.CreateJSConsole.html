@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-specialConsole.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Enter something: </label>
+			<input type="text" id="tb-first"/>
+		</div>	
+		<div id="inputbutton">
+			<a href="#" onclick="onEnterButtonClick()">Print to console</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-specialConsole.js"> 
+	</script>
+	<script>							 
+
+	    (function testConsole() {
+	        var number = 55;
+	        specialConsole.writeLine("the bigger is: {0}", number);
+	        specialConsole.write(number); // only number
+	        specialConsole.writeLine(); // empty line
+	        specialConsole.writeLine("Message: hello");
+	        specialConsole.write(); // empty sibmol
+	        //logs to the console "Message: hello"
+	        specialConsole.writeLine("Message: {0}", "hello");
+	        //logs to the console "Message: hello"
+	        specialConsole.writeError("Error: " + "Something happened");
+	        specialConsole.writeWarning("Warning: " + "A warning");
+	        specialConsole.writeError("Error: {0}", "Something happened");
+	        specialConsole.writeWarning("Warning: {0}", "A warning");
+	    })();
+
+	    function onEnterButtonClick() {
+	        var input = specialConsole.read("#tb-first");
+	        specialConsole.writeLine("You entered: {0}", input);
+	    }
+	</script>			  
+</body>
+</html>
