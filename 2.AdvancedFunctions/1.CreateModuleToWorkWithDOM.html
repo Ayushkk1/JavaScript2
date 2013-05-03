@@ -88,7 +88,7 @@
 	                bufferElements[selector] = null;
 	            }
 	        }
-	        function appendAllBufferElemends() {
+	        function appendAllBufferElements() {
 	            for (var item in bufferElements) {
 	                var parent = getElement(item);
 	                parent.appendChild(bufferElements[item]);
@@ -100,7 +100,7 @@
 	            removeChild: removeChild,
 	            addHandler: addHandler,
 	            appendToBuffer: appendToBuffer,
-	            appendAllBufferElemends: appendAllBufferElemends
+	            appendAllBufferElements: appendAllBufferElements
 	        };
 	    })();
 
@@ -121,7 +121,7 @@
 	    domModule.appendToBuffer("#main-nav ul", navItem);
 
         // at the end of JS append all not appended elements in buffer.
-	    domModule.appendAllBufferElemends()
+	    domModule.appendAllBufferElements()
 	    
 	</script>
 </body>
