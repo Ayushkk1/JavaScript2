@@ -12,16 +12,26 @@ var controls = (function () {
             strArray = str.split('#');
             element = document.createElement(strArray[0]);
             element.id = strArray[1];
-        }
-        ul = document.createElement("ul");
-        element.appendChild(ul);
+        }        
         document.body.appendChild(element);
-        return  new createSubobject(ul);
+        return  new createSubobject(element);
     }
     var createSubobject = function (element) {
         function addNode() {
+            var children = element.childNodes;
+            var isUlChild = false;
+            for (var i = 0; i < children.length; i++) {
+                if (children[i].tagName.toLowerCase() == "ul") {
+                    isUlChild = true;
+                    ul = element.children[i];   
+                }
+            }
+            if (children.length == 0 || !isUlChild) {
+                var ul = document.createElement("ul");
+                element.appendChild(ul);
+            }
             li = document.createElement("li");
-            element.appendChild(li);
+            ul.appendChild(li);
             return new createSubobject(li);
         }
         function addContent(str) {

@@ -2,17 +2,21 @@
   margin: 0;
 }
 .tree-view > ul {
-  padding: 0 0 0 15px;
+  padding: 0 0 0 20px;
 
 }
     .tree-view > ul li {
-        padding: 0 0 0 15px;
+        padding: 0 0 0 5px;
         float: left;
         width: 100%;
         list-style: circle;
     }
-        .tree-view > ul li li {
-            padding: 0 0 0 15px;
+    .tree-view > ul li ul{
+        padding: 0 0 0 20px;
+
+    }
+        .tree-view > ul li ul li {
+            padding: 0 0 0 5px;
             float: left;
             width: 100%;
             list-style: circle;

@@ -6,7 +6,7 @@ var addEventsOnLiElement = function () {
                 hasLiChild = false;
                 childElements = listElements[i].childNodes;
                 for (var j = 0; j < childElements.length; j++) {
-                    if (childElements[j].tagName.toLowerCase() == "li") {
+                    if (childElements[j].tagName.toLowerCase() == "ul") {
                         childElements[j].className = "hidden";
                         hasLiChild = true;
                     }
@@ -37,10 +37,10 @@ var addEventsOnLiElement = function () {
         function clickListElement(ev) {
             var childElements = this.childNodes;
             for (var j = 0; j < childElements.length; j++) {
-                if (childElements[j].tagName.toLowerCase() == "li" && childElements[j].className == "hidden") {
+                if (childElements[j].tagName.toLowerCase() == "ul" && childElements[j].className == "hidden") {
                     childElements[j].className = "visible";
                 }
-                else if (childElements[j].tagName.toLowerCase() == "li" && childElements[j].className == "visible") {
+                else if (childElements[j].tagName.toLowerCase() == "ul" && childElements[j].className == "visible") {
                     childElements[j].className = "hidden";
                 }
             }
@@ -49,7 +49,7 @@ var addEventsOnLiElement = function () {
         }
        
         function changeVisibility() {
-            var listElements = document.querySelectorAll("li");
+            var listElements = document.querySelectorAll("ul");
             for (var i = 0; i < listElements.length; i++) {
                 if (listElements[i].className == "hidden") {
                     listElements[i].style.display = "none";
