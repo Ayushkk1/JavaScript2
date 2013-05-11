@@ -20,7 +20,7 @@
 			var img = bucket.getElementsByTagName("img")[0];
 			attachEventHandler(bucket, "dragover", function (ev) {
 				ev.preventDefault();
-				img.src = "/images/openBucket.png";
+				img.src = "images/openBucket.png";
 			});
 
 			attachEventHandler(bucket, "drop", function (ev) {
@@ -28,11 +28,11 @@
 				var data = ev.dataTransfer.getData("garbagedTrash");
 				//ev.target.appendChild(document.getElementById(data));
 				document.body.removeChild(document.getElementById(data));
-				img.src = "/images/closeBucket.png";
+				img.src = "images/closeBucket.png";
 			});
 
 			attachEventHandler(bucket, "dragleave", function () {
-				img.src = "/images/closeBucket.png";
+				img.src = "images/closeBucket.png";
 			});
 
 		};
@@ -49,7 +49,7 @@
 				var img = document.createElement("img");
 				img.style.width = "45px";
 				img.style.height = "45px";
-				img.src = "/images/Trash.png";
+				img.src = "images/Trash.png";
 				img.alt = "Trash";
 				div.appendChild(img);
 				dfrag.appendChild(div);
