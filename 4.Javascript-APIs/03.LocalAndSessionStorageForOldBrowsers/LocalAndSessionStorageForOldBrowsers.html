@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script src='jsonPolyfill.js'></script>
+<script src='script.js'></script>
+<script>
+    // Set item
+    document.localStorage.setItem('item', 233);
+    // Get item
+    alert(document.localStorage.getItem('item'));
+    // Get item key
+    alert(document.localStorage.key(0));
+    // Remove item
+    document.localStorage.removeItem('item');
+    // Get the rest of the items
+    alert(document.localStorage.length);
+</script>
+</body>
+</html>

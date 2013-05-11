@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.CollectTrashesInTrashBuc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.AddingScores", "02.AddingScores\02.AddingScores.csproj", "{F42B9792-989E-4825-8493-BDAB0C7F1C28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.LocalAndSessionStorageForOldBrowsers", "03.LocalAndSessionStorageForOldBrowsers\03.LocalAndSessionStorageForOldBrowsers.csproj", "{B0EADC5C-F3A0-48FE-89E7-F373A2B1F28B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{F42B9792-989E-4825-8493-BDAB0C7F1C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F42B9792-989E-4825-8493-BDAB0C7F1C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F42B9792-989E-4825-8493-BDAB0C7F1C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0EADC5C-F3A0-48FE-89E7-F373A2B1F28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0EADC5C-F3A0-48FE-89E7-F373A2B1F28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0EADC5C-F3A0-48FE-89E7-F373A2B1F28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0EADC5C-F3A0-48FE-89E7-F373A2B1F28B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
