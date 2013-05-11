@@ -98,23 +98,23 @@
 
         function displayScoreBoard() {
             if (localStorage.getObject('TrashBucketScores')) {
-                var div = document.createElement("div");
-                div.id = "scoreBoard";
-                div.style.position = "absolute";
-                div.style.left = "200px";
-                div.style.top = "80px";
+                if (!document.getElementById("scoreBoard")) {
+                    var div = document.createElement("div");
+                    document.body.appendChild(div);
+                    div.id = "scoreBoard";
+                    div.style.position = "absolute";
+                    div.style.left = "200px";
+                    div.style.top = "80px";
+                }
                 var currentStorage = localStorage.getObject('TrashBucketScores');
+                div.innerHTML = "";
                 for (var i = 0; i < currentStorage.length; i++) {
                     div.innerHTML += "\
 								<div>"+ currentStorage[i]["id"] + "  " + currentStorage[i]["userName"] + "</div>";
                 }
-                document.body.appendChild(div);
             }
             else {
                 alert("There is no scores data yet.");
-            }
-            return {
-                generateDisplayButton: generateDisplayButton
             }
         };
 
