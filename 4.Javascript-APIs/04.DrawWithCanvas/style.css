@@ -1,0 +1,18 @@
+﻿body {
+    background-color: black;
+}
+#head {
+    position:absolute;
+    left: 100px;
+    top: 50px;
+}
+#bycicle {
+    position:absolute;
+    left: 80px;
+    top: 250px;
+}
+#house {
+    position:absolute;
+    left: 500px;
+    top: 50px;
+}
