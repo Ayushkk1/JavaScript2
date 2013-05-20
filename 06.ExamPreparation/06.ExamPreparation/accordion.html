@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>accordion</title>
+    <script src="scripts/addEventToElement.js"></script>
+    <script src="scripts/AccordeonList.js"></script>
+</head>
+<body>
+    <div id="accordion-holder"></div>
+    <script>
+        var accordion = controls.getAccordion("#accordion-holder");
+        var webItem = accordion.add("Web");
+        webItem.add("HTML");
+        webItem.add("CSS");
+        webItem.add("JavaScript");
+        webItem.add("jQuery");
+        webItem.add("ASP.NET MVC");
+        var desktopItem = accordion.add("Desktop");
+        desktopItem.add("VS");
+        desktopItem.add("AutoCAD");
+        accordion.add("Mobile");
+        accordion.add("Embedded");
+
+        accordion.render();
+
+        //var state = accordion.serialize();
+        //localStorage.setObject("tracks-accordion", state);
+
+    </script>
+</body>
+</html>

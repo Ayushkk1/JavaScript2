@@ -1,0 +1,34 @@
+﻿#image-gallery-holder {
+    
+}
+ul {
+    margin: 0;
+    list-style-type:none;
+    padding: 10px 0px 10px 20px;
+    width: 400px;
+    height: 100px;
+
+}
+
+    ul li {
+        float: left;
+        margin: 10px;        
+        padding: 10px 10px 10px 20px;
+        display:block;
+        list-style: none;
+        border:1px solid black;
+        border-radius: 5px;
+    }
+        ul li a {
+            display: block;
+            text-align: center;
+        }
+.clear {
+    clear: both;
+}
+
+#image-preview {
+    position: absolute;
+    left: 500px;
+    top: 100px;
+}

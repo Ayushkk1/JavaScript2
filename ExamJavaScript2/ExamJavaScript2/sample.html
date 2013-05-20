@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Exam</title>
+    <link href="styles/StyleSheet.css" rel="stylesheet" />
+    <script src="Scripts/addEventsOnGallery.js"></script>
+    <script src="Scripts/ImageGallery.js"></script>
+    <script src="Scripts/web-storage-objects.js"></script>
+    <script src="Scripts/ImageGalleryRepository.js"></script>
+</head>
+<body>
+    <div id="image-gallery-holder"></div>
+    <div class="clear" id="clone-image-gallery-holder"></div>
+    <div id="image-preview"></div>
+    <script>
+        //Task1
+        var gallery = controls.getImageGallery("#image-gallery-holder");
+        gallery.addImage("JSNinja", "images/images1.png");
+        gallery.addImage("JSNinja1", "images/images2.png");
+        gallery.addImage("JSNinja2", "images/images1.png");
+        var ninjaAlbum = gallery.addAlbum("Ninjas");
+        ninjaAlbum.addImage("JSNinja", "images/images1.png");
+        ninjaAlbum.addImage("JSNinja1", "images/images2.png");
+        ninjaAlbum.addImage("JSNinja2", "images/images1.png");
+
+        // Task2 using the previous code too.
+        var kidAlbum = ninjaAlbum.addAlbum("Ninjas");
+        kidAlbum.addImage("JSNinja", "images/images1.png");
+        kidAlbum.addImage("JSNinja1", "images/images1.png");
+        kidAlbum.addImage("JSNinja2", "images/images1.png");
+
+        // Task3 this task is added together with task1
+
+        // Task4 
+        var imageGalleryData3 = [{ name: "JSNinja", src: "images/images1.png" }];
+        ImageGalleryRepository.save("ninjas-gallery3", imageGalleryData3);
+        var galleryData = ImageGalleryRepository.load("ninjas-gallery");
+
+        // Task5 using the tasks from 1 to 3.
+        var imageGalleryData = gallery.getImageGalleryData();
+        ImageGalleryRepository.save("ninjas-gallery", imageGalleryData);
+        // If you wish to see saved to storage data remove the commentars from next two lines
+        //console.log("Display saved data at localStorage:");
+        //console.log(ImageGalleryRepository.load("ninjas-gallery"));
+
+        // Task6 using all tasks. Task 4 is not needed but it is not a problem if it remain.
+        var imageGalleryData6 = ImageGalleryRepository.load("ninjas-gallery");
+        var ninjasCloneGallery = controls.buildImageGallery("#clone-image-gallery-holder", imageGalleryData6);
+
+        // Task7 this task is added together with task1
+
+        //Task8 
+        var ninjaAlbum2 = gallery.addAlbum("NotNinjas");
+        ninjaAlbum.addImage("JSNinja", "images/images1.png");
+        ninjaAlbum.addImage("JSNinja1", "images/images2.png");
+        ninjaAlbum.addImage("JSNinja2", "images/images1.png");
+
+    </script>
+</body>
+</html>
